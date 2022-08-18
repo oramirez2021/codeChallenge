@@ -1,20 +1,30 @@
 package com.codechallenge.application.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+import java.util.List;
 
 import static javax.persistence.GenerationType.AUTO;
 
 @Entity @Data @AllArgsConstructor @NoArgsConstructor
-public class Cliente extends Persona {
+public class Cliente {
+   /* @Builder
+    public Cliente(Long id,String nombre,String genero, int edad,String identificacion,String direccion,String telefono,Long clienteId,String contrasena, String estado){
+        super(id,nombre,genero,edad,identificacion,direccion,telefono);
+        this.clienteId=clienteId;
+        this.contrasena=contrasena;
+        this.estado=estado;
+    }*/
     @Id @GeneratedValue(strategy = AUTO)
     private Long clienteId;
     private String contrasena;
     private String estado;
+
+
 
 }
