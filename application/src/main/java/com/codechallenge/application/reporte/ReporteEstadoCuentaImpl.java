@@ -4,6 +4,7 @@ import com.codechallenge.application.model.EstadoCuenta;
 import com.codechallenge.application.model.Movimiento;
 import com.codechallenge.application.repository.EstadoCuentaRepo;
 import com.codechallenge.application.repository.MovimientoRepo;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
