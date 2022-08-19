@@ -12,16 +12,17 @@ import java.util.List;
 import static javax.persistence.GenerationType.AUTO;
 
 @Entity @Data @AllArgsConstructor @NoArgsConstructor
-public class Cliente {
-   /* @Builder
+public class Cliente extends Persona{
+    @Id @GeneratedValue(strategy = AUTO)
+    private Long clienteId;
+
     public Cliente(Long id,String nombre,String genero, int edad,String identificacion,String direccion,String telefono,Long clienteId,String contrasena, String estado){
         super(id,nombre,genero,edad,identificacion,direccion,telefono);
         this.clienteId=clienteId;
         this.contrasena=contrasena;
         this.estado=estado;
-    }*/
-    @Id @GeneratedValue(strategy = AUTO)
-    private Long clienteId;
+    }
+
     private String contrasena;
     private String estado;
 
