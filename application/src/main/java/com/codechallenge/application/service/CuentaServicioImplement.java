@@ -16,9 +16,22 @@ import org.springframework.transaction.annotation.Transactional;
 @Slf4j
 public class CuentaServicioImplement implements CuentaServicio{
     private final CuentaRepo cuentaRepo;
+
+    @Override
+    public Cuenta actualizaCuenta(int numCuenta, double saldoActual) {
+        Cuenta cuenta = cuentaRepo.findByNumeroCuenta(numCuenta);
+        cuenta.setSaldoInicial(saldoActual);
+        return cuentaRepo.save(cuenta);
+    }
+
     @Override
     public Cuenta creaCuenta(Cuenta cuenta)  {
         log.info("Creando un nuevo cuenta para cliente {}",cuenta);
         return cuentaRepo.save(cuenta);
+    }
+
+    @Override
+    public Cuenta getCuenta(int numCuenta) {
+        return cuentaRepo.findByNumeroCuenta(numCuenta);
     }
 }

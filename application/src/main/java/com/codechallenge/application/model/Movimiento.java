@@ -17,8 +17,9 @@ public class Movimiento {
     @Id @GeneratedValue(strategy = AUTO)
     private Long idMovimiento;
     private int numeroCuenta;
-    private Date fecha;
+    private String fecha;
     private String tipoMovimiento;
     private double valor;
     private double saldo;
+    private String movimiento;
 }

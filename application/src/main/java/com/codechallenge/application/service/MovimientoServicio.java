@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface MovimientoServicio {
     Movimiento crearMovimiento(Movimiento movimiento);
-    List<Movimiento> getMovimientos(Date fecha);
+    List<Movimiento> getMovimientos(String fecha);
     List<Movimiento> getMovimientos();
 
 }

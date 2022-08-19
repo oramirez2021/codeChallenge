@@ -27,8 +27,6 @@ public class Application {
 	}
 	@Bean
 	CommandLineRunner run(UsuarioServicio usuarioServicio, ClienteServicio clienteServicio, CuentaServicio cuentaServicio, MovimientoServicio movimientoServicio){
-		Date fecha = new Date();
-
 		return args -> {
 			usuarioServicio.guardarRol(new Rol(null,"ROL_USUARIO"));
 			usuarioServicio.guardarUsuario(new Usuario(null,"Omar Ramirez","omar","1234",new ArrayList<>()));
@@ -36,9 +34,9 @@ public class Application {
 			//clienteServicio.crearCliente(new Cliente(null,"Omar","M",43,"0956485957","Guasmo Central","0998111883",null,"12345","True"));
 			clienteServicio.crearCliente(new Cliente(null,"12345","True"));
 			cuentaServicio.creaCuenta(new Cuenta(150,"Ahorro",500.00,"True", 3));
-			movimientoServicio.crearMovimiento(new Movimiento(2L,4,fecha,"Corriente",500.00,200.00));
-			movimientoServicio.crearMovimiento(new Movimiento(2L,4,fecha,"Athorro",500.00,200.00));
-			movimientoServicio.crearMovimiento(new Movimiento(2L,4,fecha,"Corriente",500.00,200.00));
+			movimientoServicio.crearMovimiento(new Movimiento(2L,4,"18-08-2022","Corriente",200.00,500.00,"Retiro de 200.00"));
+			movimientoServicio.crearMovimiento(new Movimiento(2L,4,"15-08-2022","Athorro",200.00,500.00,"Retiro de 200.00"));
+			movimientoServicio.crearMovimiento(new Movimiento(2L,4,"10-08-2022","Corriente",200.00,500.00,"Retiro de 200.00"));
 		};
 	}
 }
