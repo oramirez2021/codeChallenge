@@ -1,6 +1,7 @@
 package com.codechallenge.application.api;
 
 import com.codechallenge.application.model.Cliente;
+import com.codechallenge.application.model.Cuenta;
 import com.codechallenge.application.service.ClienteServicio;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,5 +17,12 @@ public class ClienteControlador {
     public ResponseEntity<Cliente> createCliente(@RequestBody Cliente cliente){
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("api/cliente/crear").toUriString());
         return ResponseEntity.created(uri).body(clienteServicio.crearCliente(cliente));
+    }
+    @DeleteMapping("/cliente/eliminar")
+    public ResponseEntity<Cliente> eliminaCliente(@RequestParam Long clienteId)  {
+        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("api/cliente/eliminar").toUriString());
+        Cliente cliente = clienteServicio.getCliente(clienteId);
+        clienteServicio.eliminarCliente(clienteId);
+        return ResponseEntity.created(uri).body(cliente);
     }
 }

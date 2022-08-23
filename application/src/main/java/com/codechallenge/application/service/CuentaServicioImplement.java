@@ -20,7 +20,7 @@ public class CuentaServicioImplement implements CuentaServicio{
     @Override
     public void elimnaCuenta(int numCuenta) {
         Cuenta cuenta = cuentaRepo.findByNumeroCuenta(numCuenta);
-        log.info("Creando un nuevo cuenta para cliente {}",cuenta);
+        log.info("Creando un nuevo cuenta para cuenta {}",cuenta);
         cuentaRepo.delete(cuenta);
     }
 
