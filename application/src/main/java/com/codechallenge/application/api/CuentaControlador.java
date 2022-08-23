@@ -20,4 +20,11 @@ public class CuentaControlador {
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("api/cuenta/crear").toUriString());
         return ResponseEntity.created(uri).body(cuentaServicio.creaCuenta(cuenta));
     }
+    @DeleteMapping("/cuenta/eliminar")
+    public ResponseEntity<Cuenta> eliminaCuenta(@RequestParam int numCuenta)  {
+        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("api/cuenta/eliminar").toUriString());
+        Cuenta cuenta = cuentaServicio.getCuenta(numCuenta);
+        cuentaServicio.elimnaCuenta(numCuenta);
+        return ResponseEntity.created(uri).body(cuenta);
+    }
 }

@@ -14,7 +14,7 @@ import static org.mockito.Mockito.when;
 //@AllArgsConstructor @NoArgsConstructor
 public class CuentaServicioImplementTest{
     @Test
-    void testActualizaCuenta(){
+    void testActualizaCuentaVerdadero(){
         //given
         Cuenta cuenta = new Cuenta(4,"Ahorro",500.00,"True",3);
         Cuenta cuentaNueva = new Cuenta();
@@ -24,5 +24,17 @@ public class CuentaServicioImplementTest{
         //then
         double saldoInicialResul = cuentaRepoMock.save(cuentaNueva).getSaldoInicial();
         Assertions.assertEquals(500.00,saldoInicialResul);
+    }
+    @Test
+    void testActualizaCuentaFalso(){
+        //given
+        Cuenta cuenta = new Cuenta(4,"Ahorro",500.00,"True",3);
+        Cuenta cuentaNueva = new Cuenta();
+        CuentaRepo cuentaRepoMock = Mockito.mock(CuentaRepo.class);
+        //when
+        when(cuentaRepoMock.save(cuentaNueva)).thenReturn(cuenta);
+        //then
+        double saldoInicialResul = cuentaRepoMock.save(cuentaNueva).getSaldoInicial();
+        Assertions.assertNotEquals(501.00,saldoInicialResul);
     }
 }

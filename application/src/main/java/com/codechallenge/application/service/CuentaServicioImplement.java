@@ -18,6 +18,13 @@ public class CuentaServicioImplement implements CuentaServicio{
     private final CuentaRepo cuentaRepo;
 
     @Override
+    public void elimnaCuenta(int numCuenta) {
+        Cuenta cuenta = cuentaRepo.findByNumeroCuenta(numCuenta);
+        log.info("Creando un nuevo cuenta para cliente {}",cuenta);
+        cuentaRepo.delete(cuenta);
+    }
+
+    @Override
     public Cuenta actualizaCuenta(int numCuenta, double saldoActual) {
         Cuenta cuenta = cuentaRepo.findByNumeroCuenta(numCuenta);
         cuenta.setSaldoInicial(saldoActual);
