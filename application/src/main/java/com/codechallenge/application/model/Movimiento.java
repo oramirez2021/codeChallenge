@@ -22,4 +22,5 @@ public class Movimiento {
     private double valor;
     private double saldo;
     private String movimiento;
+    private String tipoTransaccion;
 }
